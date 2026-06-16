@@ -30,7 +30,7 @@ pipeline {
             steps {
                 echo '서버를 백그라운드에서 실행합니다...'
                 sh '''
-                    export BUILD_ID=dontKillMe
+                    export JENKINS_NODE_COOKIE=dontKillMe
                     npx pm2 delete next-app || true
                     npx pm2 start npm --name "next-app" -- run start
                 '''
