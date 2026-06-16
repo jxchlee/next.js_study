@@ -29,9 +29,11 @@ pipeline {
         stage('4. 백그라운드 배포 (Deploy)') {
             steps {
                 echo '서버를 백그라운드에서 실행합니다...'
-                // 포트 충돌 방지 및 백그라운드 실행을 위해 npm 패키지(pm2)를 활용하는 방식이 안전합니다.
-                sh 'npx pm2 delete next-app || true'
-                sh 'npx pm2 start npm --name "next-app" -- run start'
+                sh '''
+                    export BUILD_ID=dontKillMe
+                    npx pm2 delete next-app || true
+                    npx pm2 start npm --name "next-app" -- run start
+                '''
             }
         }
     }
