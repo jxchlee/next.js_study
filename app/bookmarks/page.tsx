@@ -30,7 +30,7 @@ export default async function BookmarksPage() {
   return (
     <main className="p-8 max-w-xl mx-auto bg-white mt-6 rounded shadow">
       <h1 className="text-2xl font-bold mb-6 text-gray-800">
-        🔖 저장된 북마크
+        🔖 저장된 북마크 game over
       </h1>
 
       <ul className="space-y-3 mb-8">
